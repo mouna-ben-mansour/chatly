@@ -65,3 +65,121 @@
         }
     }
 }
+
+.home {
+    background-color: #748cf8;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container {
+        border: 1px solid white;
+        border-radius: 10px;
+        width: 65%;
+        height: 80%;
+        display: flex;
+        overflow: hidden;
+
+        .sidebar {
+            flex: 1;
+            border-right: 1px solid #3A467B;
+            background-color: #3A467B;
+            
+            .navbar {
+                background-color: #171C31;
+                color:white;
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                height: 50px;
+                justify-content: space-between;
+            
+                .logo {
+                    font-weight: bold;
+                    font-size: 16px;
+                }
+            
+                .user {
+                    display: flex;
+                    gap: 10px;
+
+            
+                    img {
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        background-color: white;
+                        object-fit: cover;
+                    }
+
+                    button {
+                        background-color: #3A467B;
+                        color: white;
+                        font-size: 12px;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    }
+            
+                }
+                
+            }
+            
+            .search {
+
+                .search-form {
+                    padding: 10px;
+
+                    input {
+                        border: none;
+                        background-color: #3A467B;
+                        color: white;
+                        outline: none;
+
+                        &::placeholder {
+                            color: white;
+                        }
+                    }
+                   
+                }
+            }
+
+            .user-chat {
+                display: flex;
+                padding: 10px;
+                gap: 10px;
+                align-items: center;
+                cursor: pointer;
+                color: white;
+
+                &:hover {
+                    background-color: #171C31;
+                }
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+                
+                span {
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+                
+                p {
+                    font-size: 12px;
+                    color: lightgray;
+                }
+            }
+           
+        }
+
+        .chat {
+            flex: 2;
+        }
+    }
+}
+
