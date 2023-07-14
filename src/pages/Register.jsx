@@ -1,14 +1,15 @@
+
 import React, { useState } from "react";
 import Add from "../images/upload-img.png";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, storage, db} from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore"; 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
     const [error, setError] = useState(false);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
         
@@ -65,10 +66,10 @@ const Register = () => {
                     </label>
                     <input style={{ display:"none"}}  type="file" id="file"></input>
                     <button>Sign up</button>
+                    {error && <span>Something went wrong</span>}
                 </form>
-                <p>You do have an account? Login </p>
+                <p>You do have an account? <Link to="/login">Login</Link></p>
             </div>
-            {error && <span>Something went wrong</span>}
         </div> 
     );
 }

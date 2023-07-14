@@ -2,18 +2,29 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import './style.scss';
-import { createRoot } from "react-dom/client";
+
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
-  Link,
+  Navigate
 } from "react-router-dom";
+
 function App() {
+
+  const { currentUser } = useContext(AuthContext);
+  console.log(currentUser)
+  const ProtectedRoute = ({children}) => {
+    if(!currentUser) {
+      return <Navigate to='/login'/>
+    }
+    return children
+  }
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home/>,
+      element: <ProtectedRoute><Home/></ProtectedRoute>,
     },
     {
       path: "register",
