@@ -1,6 +1,5 @@
 import React from "react";
-import Add from "../images/addAvatar.png";
-import { Link } from "react-router-dom";
+import Add from "../images/upload-img.png";
 const Register = () => {
     return ( 
         <div className="form-container">
@@ -15,12 +14,10 @@ const Register = () => {
                         <img src={Add} alt="" width="25px"></img>
                         <span>Add an avatar</span>
                     </label>
-                    
                     <input style={{ display:"none"}}  type="file" id="file"></input>
                     <button>Sign up</button>
                 </form>
-                <p>You do have an account? 
-                    <Link to="/login">Login</Link></p>
+                <p>You do have an account? Login </p>
             </div>
         </div> 
     );

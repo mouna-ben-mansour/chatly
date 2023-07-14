@@ -209,19 +209,50 @@
             .messages {
                 background-color: rgba(224, 224, 224, 0.507);
                 padding: 10px;
-                height: calc(100% - 140px);
+                height: calc(100% - 160px);
             }
 
             .input-send {
                 height: 50px;
                 background-color: white;
                 padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
 
-                input {
+                 input {
+                    width: 100%;
                     border: none;
                     outline: none;
+                    color: #2f2d52;
+                    font-size: 18px;
+
+                    &::placeholder {
+                        color: lightgray;
+                    }
                     
                 }
+
+                .send {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    img {
+                        height: 24px;
+                        cursor: pointer;
+                    }
+
+                    button {
+                        background-color: #748cf8;
+                        color: white;
+                        border: none;
+                        padding: 10px 15px;
+                        cursor: pointer;
+                    }
+                }
+
+               
             }
         }
     }
