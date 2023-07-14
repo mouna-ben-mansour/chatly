@@ -1,5 +1,25 @@
+@mixin mobile {
+    @media screen and (max-width:480px) {
+        @content
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width:768px) {
+        @content
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width:1200px) {
+        @content
+    }
+}
+// sass variables 
+$mainColor:#748cf8;
+
 .form-container {
-    background-color: #748cf8;
+    background-color: $mainColor;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -22,7 +42,7 @@
         .title {
             font-size: 16px;
             font-weight: bold;
-            color: 	#748cf8;
+            color: 	$mainColor;
         }
 
         form {
@@ -41,7 +61,7 @@
             button {
                 border: none;
                 color: white;
-                background-color: #748cf8;
+                background-color: $mainColor;
                 width: 100px;
                 align-self: center;
                 border-radius: 10px;
@@ -67,7 +87,7 @@
 }
 
 .home {
-    background-color: #748cf8;
+    background-color: $mainColor;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -80,11 +100,18 @@
         height: 80%;
         display: flex;
         overflow: hidden;
+        @include tablet {
+            width: 90%;
+        }
 
         .sidebar {
             flex: 1;
             border-right: 1px solid #3A467B;
             background-color: #222A4A;
+
+            @include tablet {
+                position: relative;
+            }
             
             .navbar {
                 background-color: #171C31;
@@ -98,6 +125,9 @@
                 .logo {
                     font-weight: bold;
                     font-size: 16px;
+                    @include tablet {
+                        display: none;
+                    }
                 }
             
                 .user {
@@ -120,6 +150,10 @@
                         border: none;
                         border-radius: 5px;
                         cursor: pointer;
+                        @include tablet {
+                            position: absolute;
+                            bottom: 10px;
+                        }
                     }
             
                 }
@@ -300,7 +334,7 @@
                     }
 
                     button {
-                        background-color: #748cf8;
+                        background-color: $mainColor;
                         color: white;
                         border: none;
                         padding: 10px 15px;
