@@ -9,7 +9,7 @@ const Search = () => {
             <div className="user-chat">
                 <img src={ User } alt=""/>
                 <div className="user-info">
-                    <span>Abdallah</span>
+                    <span>Sarra</span>
                     <p>Hello!</p>
                 </div>
             </div>

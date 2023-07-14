@@ -1,5 +1,5 @@
 import React from "react";
-import User from "../images/user.jpg"
+import User from "../images/user2.jpg"
 const Chats = () => {
     return ( 
         <div className="chats">
