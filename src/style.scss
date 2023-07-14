@@ -84,7 +84,7 @@
         .sidebar {
             flex: 1;
             border-right: 1px solid #3A467B;
-            background-color: #3A467B;
+            background-color: #222A4A;
             
             .navbar {
                 background-color: #171C31;
@@ -133,7 +133,7 @@
 
                     input {
                         border: none;
-                        background-color: #3A467B;
+                        background-color: transparent;
                         color: white;
                         outline: none;
 
@@ -179,6 +179,50 @@
 
         .chat {
             flex: 2;
+
+            .chat-info {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #3A467B;
+                padding: 10px;
+                height: 50px;
+                color: lightgray;
+
+                span {
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+
+                .chat-icons {
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+
+                    img {
+                        cursor: pointer;
+                        height: 24px;
+                    }
+                }
+            }
+
+            .messages {
+                background-color: rgba(224, 224, 224, 0.507);
+                padding: 10px;
+                height: calc(100% - 140px);
+            }
+
+            .input-send {
+                height: 50px;
+                background-color: white;
+                padding: 10px;
+
+                input {
+                    border: none;
+                    outline: none;
+                    
+                }
+            }
         }
     }
 }
