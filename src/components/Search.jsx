@@ -55,10 +55,7 @@ const Search = () => {
 
                 })
             } 
-        } catch (err) {
-            // setErr(true);
-            console.log(err)
-        }
+        } catch (err) {}
         setUser(null);
         setUsername('');
 

@@ -1,20 +1,26 @@
-import React, { useState, useContext ,useEffect} from "react";
-import { doc, onSnapshot  } from "firebase/firestore";
-import { db } from "../firebase";
-
+import React, { useEffect, useContext ,useRef} from "react";
+import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
-import User from "../images/user.jpg";
+
 const Message = ({message}) => {
     const { data } = useContext(ChatContext);
+    const { currentUser } = useContext(AuthContext);
+
+    const ref = useRef();
+
+    useEffect(()=>{
+        ref.current?.scrollIntoView({behavior:'smooth'})
+    },[message])
+
     return ( 
-        <div className="message owner">
+        <div ref= {ref} className={`message ${message.senderId === currentUser.uid && 'owner'}`}>
             <div className="message-info">
-                <img src={ User } alt=""/>
+                <img src={ message.senderId === currentUser.uid ? currentUser.photoURL : data.user.photoURL } alt=""/>
                 <span>just now</span>
             </div>
             <div className="message-content">
-                <p>Good morning!</p>
-                <img src={ User } alt=""/>
+                <p>{message.text}</p>
+                {message.image && <img src={ message.image} alt=""/>}
             </div>
         </div>
      );

@@ -3,7 +3,7 @@ import { doc, onSnapshot  } from "firebase/firestore";
 import { db } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
-import User from "../images/user2.jpg"
+
 const Chats = () => {
     const [chats, setChats] = useState([]);
     const [err,setErr] = useState(false);
@@ -13,7 +13,6 @@ const Chats = () => {
        const getChats = () => {
             try {
                 const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
-                    console.log("Current data: ", doc.data());
                     setChats(doc.data());
                 });
                 // clean data
@@ -34,12 +33,12 @@ const Chats = () => {
     return ( 
         <div className="chats">
             {
-                Object.entries(chats)?.map((chat) => (
+                Object.entries(chats)?.sort((a,b)=>b[1].date - a[1].date).map((chat) => (
                     <div className="user-chat" key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)}>
                         <img src={ chat[1].userInfo.photoURL } alt=""/>
                         <div className="user-info">
                             <span>{chat[1].userInfo.displayName}</span>
-                            <p>{chat[1].userInfo.lastMessage?.text}</p>
+                            <p>{chat[1].lastMessage?.text}</p>
                         </div>
                     </div>
                 ))
